@@ -15,7 +15,19 @@ function numbOfItems(){
 function numbBackOrder(){
     for (var i = 0; i < arraySize; i++){
         if (theData2[i]["product"]["inventories"][0]["availability"] == "backorder"){
-            var body = document.getElementById('backorder');
+            var body = document.getElementById('backorder');    //access list
+            var element = document.createElement('li');
+            element.innerHTML = theData2[i]["product"]["title"];
+            body.appendChild(element);
+        }
+    }
+}
+
+function numbMultImage(){
+    var countNum = 0;
+    for (var i = 0; i < arraySize; i++){
+        if (theData2[i]["product"]["images"].length > 1){
+            var body = document.getElementById('multimages');   //access list
             var element = document.createElement('li');
             element.innerHTML = theData2[i]["product"]["title"];
             body.appendChild(element);
